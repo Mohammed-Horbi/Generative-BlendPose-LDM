@@ -4,5 +4,5 @@ Generative BlendPose-LDM, a framework for face image anonymization that leverage
 
 
 <p align="center">
-  <img src="Sample_ImgW0.30.png" alt="Diagram" width="60%">
+  <img src="Sample_ImgW0.30.png" alt="Sample results of multiple k under image weight=0.30" width="90%">
 </p>
