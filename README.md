@@ -11,11 +11,12 @@ Generative BlendPose-LDM, a framework for face image anonymization that leverage
 
 # Setup
 1. clone
+   git clone https://github.com/Mohammed-Horbi/Generative-BlendPose-LDM.git
+   
 2. Download diffusion model from Hugging Face
    The 5 GB model weights are hosted on Hugging Face:  
 👉 [MYS79/DDPM](https://huggingface.co/MYS79/DDPM)
 
-# Usage
 from huggingface_hub import hf_hub_download
 
 path = hf_hub_download(
@@ -23,3 +24,6 @@ path = hf_hub_download(
     filename="ddpm_500.pth"             # change if your file name differs
 )
 print("Saved at:", path)
+
+# Usage
+
