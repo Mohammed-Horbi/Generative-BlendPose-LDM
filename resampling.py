@@ -223,7 +223,7 @@ def img_generation(model, scheduler, vae, train_dataloader, Image_size, k_blendi
                         Orig_img = torchvision.transforms.ToPILImage()(orig_t)
                         
                         axes[0].imshow(Orig_img); axes[0].set_title("Original")
-                        axes[1].imshow(blended_img);  axes[1].set_title(f"k{k_blending}_Blended")
+                        axes[1].imshow(blended_img);  axes[1].set_title(f"k{k_blending + 1}_Blended")
                         axes[2].imshow(generated_img);  axes[2].set_title("Generated")
                         plt.tight_layout()
                         plt.show()
