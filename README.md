@@ -10,7 +10,7 @@ Generative BlendPose-LDM, a framework for face image anonymization that leverage
 The 5 GB model weights are hosted on Hugging Face:  
 👉 [MYS79/DDPM](https://huggingface.co/MYS79/DDPM)
 
-#Usage
+# Usage
 from huggingface_hub import hf_hub_download
 
 path = hf_hub_download(
