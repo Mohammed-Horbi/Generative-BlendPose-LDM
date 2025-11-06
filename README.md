@@ -13,7 +13,7 @@ Generative BlendPose-LDM, a framework for face image anonymization that leverage
 1. Clone the repository.
 
 ```bash
-   git clone https://github.com/Mohammed-Horbi/Generative-BlendPose-LDM.git
+git clone https://github.com/Mohammed-Horbi/Generative-BlendPose-LDM.git
 ```   
 2. Download the diffusion model from Hugging Face
    The 5 GB model weights are hosted on Hugging Face:  
