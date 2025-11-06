@@ -28,4 +28,4 @@ path = hf_hub_download(
 print("Saved at:", path)
 ```
 # Usage
-Place the downloaded diffusion model in the cloned folder "Generative-BlendPose-LDM/models", and then start using Demo.ipynb.
+Place the downloaded diffusion model in the cloned folder "Generative-BlendPose-LDM/models", and then start using the provided Demo.ipynb notebook.
