@@ -23,9 +23,9 @@ from huggingface_hub import hf_hub_download
 
 path = hf_hub_download(
     repo_id="MYS79/DDPM",
-    filename="ddpm_500.pth"             # change if your file name differs
+    filename="ddpm_500.pth"        
 )
 print("Saved at:", path)
 ```
 # Usage
-Place the downloaded diffusion model in the cloned folder "Generative-BlendPose-LDM/models", and then start using the provided Demo.ipynb notebook.
+Place the downloaded diffusion model "ddpm_500.pth" in the cloned folder "Generative-BlendPose-LDM/models", and then start using the provided Demo.ipynb notebook.
