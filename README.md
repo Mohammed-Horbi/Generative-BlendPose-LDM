@@ -29,3 +29,7 @@ print("Saved at:", path)
 ```
 # Usage
 Place the downloaded diffusion model "ddpm_500.pth" in the cloned folder "Generative-BlendPose-LDM/models", and then start using the provided [Demo.ipynb](Demo.ipynb) notebook for anonymized face generation.
+
+
+# Training
+For train model on the MTF dataset you can use the train.py file
