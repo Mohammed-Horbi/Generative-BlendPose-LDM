@@ -34,4 +34,4 @@ Place the downloaded diffusion model "ddpm_500.pth" in the cloned folder "Genera
 We use the [CelebA-HQ](https://github.com/tkarras/progressive_growing_of_gans) for training our model and finetuned it on the [MTF dataset](https://sobigdata.d4science.org/catalogue-sobigdata?path=/dataset/multi-task_faces_mtf_dataset) training set, and all results were generated based on the MTF testing set.
 
 # Training
-For train model on the MTF dataset you can use the train.py file
+For train model on the MTF dataset you can use the [train](Train.py) file
