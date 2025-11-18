@@ -31,7 +31,7 @@ print("Saved at:", path)
 Place the downloaded diffusion model "ddpm_500.pth" in the cloned folder "Generative-BlendPose-LDM/models", and then start using the provided [Demo.ipynb](Demo.ipynb) notebook for anonymized face generation.
 
 # Dataset
-We use the [CelebA-HQ](https://github.com/tkarras/progressive_growing_of_gans) for training our model and finetuned it on the [MTF dataset](https://sobigdata.d4science.org/catalogue-sobigdata?path=/dataset/multi-task_faces_mtf_dataset) training set, and all results were generated based on the MTF testing set.
+We use the [CelebA-HQ](https://github.com/tkarras/progressive_growing_of_gans) for training our model and finetuned it on the [MTF dataset](https://drive.google.com/drive/folders/1uERP_FbNAqkMJ7Wy6cI6V8Op8QONsODP) training set, and all results were generated based on the MTF testing set.
 
 # Training
 For train model on the MTF dataset you can use the [Train.py](Train.py) file
