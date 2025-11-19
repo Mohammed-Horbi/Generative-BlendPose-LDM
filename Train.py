@@ -168,7 +168,7 @@ def main():
     print('text_path: ',text_path[:1])
 
     # Load dataset
-    train_dataset, tokenizer, textencoder = loader.load_and_transform_dataset(Image_size, image_path, text_path, tokenizer, textencoder)
+    train_dataset, tokenizer, textencoder = loader.load_and_transform_dataset(Image_size, image_path, text_path, tokenizer, textencoder, use_augmentation=True)
     print('train_dataset: ', len(train_dataset))  # Check the number of images
     train_dataloader = DataLoader(train_dataset, batch_size=batch_size, num_workers=0, pin_memory=True)
     identity_model = InceptionResnetV1(pretrained='vggface2').eval().to(device)
@@ -222,6 +222,8 @@ def main():
         #     alpha_mse, beta_l1, gamma_clip, delta_lpips, epsilon_id = loss_weights.tolist()    
         
         progress_bar = tqdm(train_dataloader)
+        # Initialize optimizer gradients
+        optimizer.zero_grad()
         for batch_idx, (im, _, txt_original, img_name, indexed_tokens, att_mask) in enumerate(progress_bar):                                  
             text_weight, image_weight = adaptive_weights(epoch_idx)                        
             im = im.float().to(device)
@@ -333,7 +335,7 @@ def main():
                 identity_loss = torch.tensor(0.0, device=device)
 
             # Final composite loss function       
-            loss = (alpha_mse * loss_mse + beta_l1 * loss_l1 + gamma_clip * clip_loss + delta_lpips * loss_lpips + epsilon_id * identity_loss) / gradient_accumulation_steps
+            loss = (alpha_mse * loss_mse + beta_l1 * loss_l1 + gamma_clip * clip_loss + delta_lpips * loss_lpips + epsilon_id * identity_loss) #/ gradient_accumulation_steps
             full_loss = alpha_mse * loss_mse + beta_l1 * loss_l1 + gamma_clip * clip_loss + delta_lpips * loss_lpips + epsilon_id * identity_loss
 
             # Track losses
@@ -350,7 +352,7 @@ def main():
             # if ((batch_idx + 1) % gradient_accumulation_steps == 0) or (batch_idx + 1 == len(train_dataloader)):
             #     torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
             optimizer.step()
-                # optimizer.zero_grad()
+            optimizer.zero_grad()            
             step_count += 1
 
             # Update progress bar description
