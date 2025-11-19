@@ -35,10 +35,30 @@ class ConditionalImageDataset(Dataset):
         # Text Normalization added to the model architecture                    
         return image, tokenized_text, text_original, image_name,  indexed_tokens, att_mask #, img_original  # Dummy label since no classes exist
 
-def load_and_transform_dataset(Image_size, image_path, text_path, tokenizer, textencoder):
-    data_transforms = transforms.Compose([
-    transforms.Resize((Image_size, Image_size), interpolation=transforms.InterpolationMode.LANCZOS),
-    transforms.ToTensor(),
-    transforms.Lambda(lambda t: (t * 2) - 1)  # Normalize to [-1, 1]
-    ])          
+def load_and_transform_dataset(Image_size, image_path, text_path, tokenizer, textencoder, use_augmentation=True):
+    if use_augmentation:
+        data_transforms = transforms.Compose([
+            transforms.Resize((Image_size, Image_size), interpolation=transforms.InterpolationMode.LANCZOS),
+            transforms.RandomHorizontalFlip(p=0.5),
+            transforms.ColorJitter(
+                brightness=0.1,
+                contrast=0.1,
+                saturation=0.1,
+                hue=0.05
+            ),
+            transforms.RandomAffine(
+                degrees=(-2, 2),
+                translate=(0.02, 0.02),
+                scale=(0.98, 1.02),
+                interpolation=transforms.InterpolationMode.BILINEAR
+            ),
+            transforms.ToTensor(),
+            transforms.Lambda(lambda t: (t * 2) - 1)  # Normalize to [-1, 1]
+        ])
+    else:
+        data_transforms = transforms.Compose([
+            transforms.Resize((Image_size, Image_size), interpolation=transforms.InterpolationMode.LANCZOS),
+            transforms.ToTensor(),
+            transforms.Lambda(lambda t: (t * 2) - 1)  # Normalize to [-1, 1]
+        ])          
     return ConditionalImageDataset(image_path, text_path, tokenizer=tokenizer, textencoder=textencoder, transform=data_transforms), tokenizer, textencoder
