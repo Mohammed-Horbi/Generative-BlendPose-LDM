@@ -28,7 +28,7 @@ path = hf_hub_download(
 print("Saved at:", path)
 ```
 # Usage
-Place the downloaded diffusion model "ddpm_500.pth" in the cloned folder "Generative-BlendPose-LDM/models", and then start using the provided [Demo.ipynb](Demo.ipynb) notebook for anonymized face generation.
+Place the downloaded diffusion model "ddpm_500.pth" or use the "ddpm_500_Light.pth" with the exact weights, but it's light in the cloned folder "Generative-BlendPose-LDM/models", and then start using the provided [Demo.ipynb](Demo.ipynb) notebook for anonymized face generation.
 
 # Dataset
 We use the [CelebA-HQ](https://github.com/tkarras/progressive_growing_of_gans) for training our model and finetuned it on the [MTF dataset](https://drive.google.com/drive/folders/1uERP_FbNAqkMJ7Wy6cI6V8Op8QONsODP) training set, and all results were generated based on the MTF testing set.
