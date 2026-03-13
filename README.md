@@ -35,3 +35,15 @@ We use the [CelebA-HQ](https://github.com/tkarras/progressive_growing_of_gans) f
 
 # Training
 For train model on the MTF dataset you can use the [Train.py](Train.py) file
+
+# Citation
+```bash
+@article{ali2026generative,
+  title={Generative BlendPose-LDM: Utility-preserving face image anonymization via k-anonymous latent diffusion},
+  author={Ali, Mohammed Yousef Salem and Haffar, Rami and S{\'a}nchez, David},
+  journal={Machine Learning with Applications},
+  pages={100881},
+  year={2026},
+  publisher={Elsevier}
+}
+```
